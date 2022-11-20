@@ -1,0 +1,256 @@
+=======================
+Jenkins Workshop Agenda
+=======================
+
+What is Build & Deployment Process
+Application Environments In Real-Time
+Challenges in Manual Build & Deployments
+What is CI CD & Why we need ?
+Jenkins Introduction
+Jenkins Setup
+Jenkins Job Creation
+Job Scheduling
+Conclusion
+
+========================
+Build  & Deployment Process
+========================
+Take latest source code from Git Hub
+Compile project source code
+Execute Unit Test cases
+Perform Code Review using SonarQube
+Package the application ( jar  / war )
+Upload Build Artifact in Nexus
+Deploy the Application in Server
+
+
+=======================
+Application Environments:
+======================
+
+Environment : A platform which is used to run our application
+
+
+DEV  env :   Developers will use to perform code integration testing
+
+QA env :  Testers will use to perform functional testing
+
+UAT env :  User acceptance testing ( client side team will perform application testing )
+
+Pilot env :  It is also called as Pre-Prod environment  ( performance testing )
+
+Prod env : Live environment. End users will access application running in PROD environment.
+
+	www.gmail.com  ----> Production env url of the project
+	www.facebook.com ---> Production env url of the project
+
+
+================================
+Challenges in Manaul Build Process
+================================
+
+Every day we need to deploy latest code 
+Deploy code in multiple environments
+Takes lot of time
+Repeated Work
+Error Prone
+
+
+================
+Project Teams
+================
+
+Devlopment Team :  Responsible for project development ( Coding )
+
+Testing Team : Responsible for project functionality testing ( verification & validation )
+
+Operations Team : Responsible for Build & Deployment process 
+
+
+Dev + Ops  ====> DevOps
+
+
+Development + Operations =============> DevOps
+
+
+DevOps is a process which is used to colloborate development team work & operations team work
+
+Using DevOps process we can simply application Build & Deployment process
+
+
+
+
+===========
+Jenkins
+===========
+
+-> Jenkins is a free software
+
+-> Jenkins developed using java langauge
+
+-> Jenkins is used to automate build & deployment process
+
+-> We can implement CI CD using jenkins
+
+
+==============
+What is CI CD ?
+===============
+
+CI : Continuous Integration
+
+CD : Continuous Delivery  / Continuous Deployment
+
+
+-> CI CD is one of the trending approach in software development life cycle
+
+-> CI CD is used to simplify and automate project deployment & delivery process
+
+
+Continous Integration : When code changes happend it should be ready to test
+
+Continuous Delivery : Keep it ready in repository for release
+
+Continuous Deployment : Release / deploy the project to Production
+
+Note: For Production deployment we need to take Client Approval.
+
+
+===============
+Part-1  : Summary
+===============
+
+1) What is Build & Deployment Process
+
+2) Application Environments
+
+3) Why we need several environments for our application
+
+4) Challenges in Manual Build & Deployment process
+
+5) What is Jenkins
+
+6) What is CI CD
+
+
+====================
+Part-2
+====================
+
+
+================
+Manual Deployment
+================
+
+Git Hub Repo URL :  https://github.com/ashokitschool/maven-web-app.git
+
+
+1) Downloaded code from git hub
+
+2) Executed Maven Goal ( clean package )   ==> war file created
+
+3) Uploaded war file into tomcat server  (deployment)
+
+4) Access application from tomcat dashboard
+
+===================
+Infrastructure Setup 
+====================
+
+-> Create  Linux VM using EC2 in AWS cloud  and install  tomcat server
+
+-> Create  Linux VM using EC2 in AWS cloud  and install  Jenkins server
+
+-> Clone Git Hub Repository
+
+===========================
+Build & Deployment Process
+===========================
+
+Download project from git hub
+
+package the project using maven
+
+Maven will create war file
+
+Deploy war file into tomcat  (post build action)
+
+Note: Above build & deployment process can be automated using Jenkins
+
+Access application using URL in browser
+
+============================
+Jenkins Job Creation Process
+=============================
+
+1) Login into Jenkins
+
+2) Configure Maven in Global Tool Configuration  (Jenkins will download maven)
+
+				-> Manage Jenkins
+				-> Global tools Configurations
+				-> Add Maven
+
+3) Install 'Deploy To Container' Plugin (To deploy war to tomcat server)
+
+				-> Manage Jenkins
+				-> Manage Plugins
+				-> Go to available tab
+				-> search for 'Deploy To Container' plugin
+				-> Click on install without re-start
+
+
+Note: Git s/w will be available by default in Jenkins Gloabl Tools Configuration
+
+4) Create Free Style Project 
+
+5) Enter Git Repo URL
+
+6) Build Trigger (configure Maven which is added in Global Tools and Provide Maven Goals as clean package)
+
+7) Add Tomcat Server in Post Build Action For deployment
+
+8) Save the Job configuration
+
+9) Run the Job
+
+10) See Tomcat Dashboard (Application should display) and access the application
+
+
+=================
+Poll SCM
+==================
+
+-> Click on Job name
+
+-> Click On Configure
+
+-> Configure Poll SCM with cron expression as ( * * * * *)
+
+-> Every minute it will check for code changes, if code changes available then jenkins job will run 
+
+
+=================================== DONE ================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
