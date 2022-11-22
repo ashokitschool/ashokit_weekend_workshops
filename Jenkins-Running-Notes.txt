@@ -230,17 +230,55 @@ Poll SCM
 -> Every minute it will check for code changes, if code changes available then jenkins job will run 
 
 
-=================================== DONE ================================
+============================
+How to deploy web application ?
+============================
 
+-> To deploy a web application we need a server
 
+-> We are using Apache Tomcat as webserver to run web applications
 
+-> Web Application will be packaged as war file 
 
+-> WAR file we will keep in tomcat server webapps folder.
 
+-> webapps folder is called as Deployment folder
 
+===================================
+How to deploy Spring Boot Application ?
+===================================
 
+-> Spring Boot application will execute from main  ( ) method
 
+-> Spring Boot Application can be deployed as jar file
 
+-> We no need to configure external server to run / deploy spring boot application
 
+-> Spring Boot having embedded server to run Spring Boot Application
+
+========================================
+Running Spring Boot Application In AWS Cloud
+========================================
+
+1) Create Linux Virtual Machine (Amazon Linux)
+
+2) Connect Linux Virtual Machine using MobaXterm
+
+3) Install Java software
+
+		$ sudo yum install java
+
+4) Upload Spring Boot Jar file into Linux VM
+
+5) Run Spring Boot Jar file using below command
+
+	 	$ java -jar  <jar-file-name>
+
+6) Enable 8080 port number in security group of our Linux Virtual Machine
+
+7) Access our application in browser
+
+		URL : http://public-ip:8080/
 
 
 
